@@ -119,6 +119,9 @@ public class FenetreDeDessin extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                formMouseEntered(evt);
+            }
         });
 
         btnDeplacer.setText("Deplacer");
@@ -162,7 +165,7 @@ public class FenetreDeDessin extends javax.swing.JFrame {
                 .addComponent(btnModifier)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSupprimer)
-                .addContainerGap(1341, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,6 +340,9 @@ public class FenetreDeDessin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSupprimerActionPerformed
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+    
+        if(flage){
+            
         
         switch(state) {
             case INIT:
@@ -369,7 +375,8 @@ public class FenetreDeDessin extends javax.swing.JFrame {
                 traceRedLine();
                 break;
             case REPOS_MODIFIER:
-                throw new RuntimeException("Impossible action");
+                //a implementer
+                break;
             case PRESED_MODIFIER:
                 state = STATE.PRESEDMOUVED_MODIFIER;
                 //trace2RedLines();
@@ -384,11 +391,14 @@ public class FenetreDeDessin extends javax.swing.JFrame {
                 throw new RuntimeException("Impossible action");
        
       }
-        
+       
+        }
     }//GEN-LAST:event_formMouseDragged
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
 
+        if(flage)
+        {
         switch(state) {
             case INIT:
                 state = STATE.INIT;
@@ -437,10 +447,12 @@ public class FenetreDeDessin extends javax.swing.JFrame {
                 state = STATE.PRESED_SUPPRIMER;
                 break;       
       }
+        }
     }//GEN-LAST:event_formMouseMoved
 
     private void formMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseReleased
-                   
+        if(flage)
+        {
         switch(state) {
             case INIT:
                 break;            
@@ -484,10 +496,12 @@ public class FenetreDeDessin extends javax.swing.JFrame {
                 break;
        
         }
+        }
     }//GEN-LAST:event_formMouseReleased
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
-            switch(state) {
+        if(flage){    
+        switch(state) {
             case INIT:
                 state = STATE.INIT;
                 break;
@@ -510,7 +524,7 @@ public class FenetreDeDessin extends javax.swing.JFrame {
                 for( Line2D.Float l : lineList) {
                     if(l.contains(evt.getX(), evt.getY()))
                     {
-                        System.out.println("selection line");
+                        System.err.println("selection line");
                         state = STATE.PRESED_DEPLACER;
                     }
                     
@@ -552,8 +566,12 @@ public class FenetreDeDessin extends javax.swing.JFrame {
             case PRESED_SUPPRIMER:
                 throw new RuntimeException("Impossible action");
        }
-        
+        }
     }//GEN-LAST:event_formMousePressed
+
+    private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formMouseEntered
 
     /**
      * @param args the command line arguments
