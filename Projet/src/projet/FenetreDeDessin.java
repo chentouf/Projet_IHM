@@ -73,14 +73,15 @@ public class FenetreDeDessin extends javax.swing.JFrame {
             tmpLine.setLine(0, 0, 0, 0);
         }
         
-        if(lineAdeplacer != null){
-            lineList.add(new Line2D.Float(lineAdeplacer.getP1(),lineAdeplacer.getP2());
+        if(lineAdeplacer != null)
+        {
+            lineList.add(new Line2D.Float(lineAdeplacer.getP1(),lineAdeplacer.getP2()));
             lineAdeplacer = null;
         }
         if(newLine1 != null && newLine2 != null)
         {
-            lineList.add(new Line2D.Float(newLine1.getP1(),newLine1.getP2());
-            lineList.add(new Line2D.Float(newLine2.getP1(),newLine2.getP2());
+            lineList.add(new Line2D.Float(newLine1.getP1(),newLine1.getP2()));
+            lineList.add(new Line2D.Float(newLine2.getP1(),newLine2.getP2()));
             newLine2 = null;
             newLine1 = null;
         }
